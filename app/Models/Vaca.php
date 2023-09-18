@@ -24,4 +24,9 @@ class Vaca extends Model
         'vacinas',
         'observacoes'
     ];
+
+    public function bezerros()
+    {
+        return $this->hasMany(Bezerro::class);
+    }
 }

@@ -26,4 +26,9 @@ class Bezerro extends Model
         'vacinas',
         'observacoes'
     ];
+
+    public function vaca()
+    {
+        return $this->belongsTo(Vaca::class);
+    }
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('cor_brinco')->nullable();
             $table->string('sexo')->nullable();
             $table->string('procedencia')->nullable();
-            $table->string('mae')->nullable();
+            $table->unsignedBigInteger('mae')->foreign('mae')->references('brinco')->on('vacas')->onDelete('cascade')->nullable();
             $table->date('data_nascimento')->nullable();
             $table->string('raca')->nullable();
             $table->integer('peso_nascimento')->nullable();
