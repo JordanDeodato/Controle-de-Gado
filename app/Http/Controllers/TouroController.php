@@ -17,7 +17,7 @@ class TouroController extends Controller
         $user = Auth::User();
         $touros = Touro::all();
 
-        return view('cms.animais.touro.index', compact('touro', 'user'));
+        return view('cms.animais.touro.index', compact('touros', 'user'));
     }
 
     /**

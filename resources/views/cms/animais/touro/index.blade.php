@@ -43,6 +43,23 @@
                                             <td>{{ $touro->raca }}</td>
                                             <td>{{ $touro->fazenda }}</td>
                                             <td>{{ $touro->observacoes }}</td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <form action="{{ route('touro.destroy', $touro->id) }}"
+                                                        method="post">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
+
+                                                        <a href="{{ route('touro.edit', $touro->id) }}"
+                                                            class="text-muted" type="button"> <i
+                                                                class="bi bi-pencil-square"> </i>
+                                                        </a>
+                                                        <button type="submit" class="btn fs-8 me-sm-4 ">
+                                                            <i class="bi bi-trash "></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endisset

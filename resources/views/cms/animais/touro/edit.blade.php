@@ -28,33 +28,33 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="cor_brinco" id="cor_brinco" placeholder="Cor do Brinco" value="{{ $touro->brinco }}">
+                                    <input type="text" class="form-control" name="cor_brinco" id="cor_brinco" placeholder="Cor do Brinco" value="{{ $touro->cor_brinco }}">
                                     <label for="cor_brinco">Cor do Brinco</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="peso_atual" id="peso_atual" placeholder="Peso Atual" value="{{ $touro->brinco }}">
+                                    <input type="text" class="form-control" name="peso_atual" id="peso_atual" placeholder="Peso Atual" value="{{ $touro->peso_atual }}">
                                     <label for="peso_atual">Peso Atual</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" name="procedencia" id="procedencia"
-                                        placeholder="Procedência" value="{{ $touro->brinco }}">
+                                        placeholder="Procedência" value="{{ $touro->procedencia }}">
                                     <label for="procedencia">Procedência</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="raca" id="raca" placeholder="Raça" value="{{ $touro->brinco }}">
+                                    <input type="text" class="form-control" name="raca" id="raca" placeholder="Raça" value="{{ $touro->raca }}">
                                     <label for="raca">Raça</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" name="preco_compra" id="preco_compra" placeholder="Preço da Compra" value="{{ $touro->brinco }}">
+                                        <input type="text" class="form-control" name="preco_compra" id="preco_compra" placeholder="Preço da Compra" value="{{ $touro->preco_compra }}">
                                         <label for="preco_compra">Preço da Compra</label>
                                     </div>
                                 </div>
@@ -62,20 +62,20 @@
                             <div class="col-md-12">
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" name="fazenda" id="fazenda" placeholder="Fazenda" value="{{ $touro->brinco }}">
+                                        <input type="text" class="form-control" name="fazenda" id="fazenda" placeholder="Fazenda" value="{{ $touro->fazenda }}">
                                         <label for="fazenda">Fazenda</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Vacinas" name="vacinas" id="vacinas" style="height: 100px;">{{ $touro->brinco }}</textarea>
+                                    <textarea class="form-control" placeholder="Vacinas" name="vacinas" id="vacinas" style="height: 100px;">{{ $touro->vacinas }}</textarea>
                                     <label for="vacinas">Vacinas</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Observações" name="observacoes" id="observacoes" style="height: 100px;">{{ $touro->brinco }}</textarea>
+                                    <textarea class="form-control" placeholder="Observações" name="observacoes" id="observacoes" style="height: 100px;">{{ $touro->observacoes }}</textarea>
                                     <label for="observacoes">Observações</label>
                                 </div>
                             </div>
