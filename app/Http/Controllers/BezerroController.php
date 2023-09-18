@@ -15,9 +15,10 @@ class BezerroController extends Controller
      */
     public function index()
     {
+        $user = Auth::User();
+        $bezerros = Bezerro::all();
 
-
-        return view('cms.animais.bezerro.index');
+        return view('cms.animais.bezerro.index', compact('bezerros', 'user'));
     }
 
     /**
@@ -25,10 +26,9 @@ class BezerroController extends Controller
      */
     public function create()
     {
-        // $user = Auth::User();
-        // $vacas = Vaca::all();
-        // $egua = Animal::all()->where('animal', 'egua');
-        return view('cms.animais.bezerro.create');
+        $user = Auth::User();
+        $vacas = Vaca::all();
+        return view('cms.animais.bezerro.create', compact('vacas', 'user'));
     }
 
     /**
@@ -39,15 +39,21 @@ class BezerroController extends Controller
         $user = Auth::User();
 
         Bezerro::create([
-            'identificacao' => $request->identificacao,
-            'peso' => $request->peso,
-            'animal' => $request->animal,
-            'idade' => $request->idade,
+            'brinco' => $request->brinco,
+            'cor_brinco' => $request->cor_brinco,
+            'sexo' => $request->sexo,
+            'procedencia' => $request->procedencia,
+            'mae' => $request->mae,
+            'data_nascimento' => $request->data_nascimento,
             'raca' => $request->raca,
-            'mae_id' => $request->mae_id,
-            'peso_nasc' => $request->peso_nasc,
+            'peso_nascimento' => $request->peso_nascimento,
+            'peso_atual' => $request->peso_atual,
             'peso_desmame' => $request->peso_desmame,
-            'vacinas' => $request->vacinas
+            'preco_compra' => $request->preco_compra,
+            'desmame' => $request->desmame,
+            'fazenda' => $request->fazenda,
+            'vacinas' => $request->vacinas,
+            'observacoes' => $request->observacoes,
         ]);
 
         return redirect()->route('bezerro.index', compact('user'));
@@ -67,10 +73,10 @@ class BezerroController extends Controller
     public function edit(string $id)
     {
         $user =  Auth::User();
-        $vaca = Vaca::all();
+        $vacas = Vaca::all();
         $bezerro = Bezerro::findOrFail($id);
 
-        return view('animal.vaca.edit', compact('vaca', 'user', 'bezerro'));
+        return view('cms.animais.bezerro.edit', compact('vacas', 'user', 'bezerro'));
     }
 
     /**
@@ -82,15 +88,21 @@ class BezerroController extends Controller
         $bezerro = Bezerro::findOrFail($id);
 
         $bezerro->update([
-            'identificacao' => $request->identificacao,
-            'peso' => $request->peso,
-            'animal' => $request->animal,
-            'idade' => $request->idade,
+            'brinco' => $request->brinco,
+            'cor_brinco' => $request->cor_brinco,
+            'sexo' => $request->sexo,
+            'procedencia' => $request->procedencia,
+            'mae' => $request->mae,
+            'data_nascimento' => $request->data_nascimento,
             'raca' => $request->raca,
-            'mae_id' => $request->mae_id,
-            'peso_nasc' => $request->peso_nasc,
+            'peso_nascimento' => $request->peso_nascimento,
+            'peso_atual' => $request->peso_atual,
             'peso_desmame' => $request->peso_desmame,
-            'vacinas' => $request->vacinas
+            'preco_compra' => $request->preco_compra,
+            'desmame' => $request->desmame,
+            'fazenda' => $request->fazenda,
+            'vacinas' => $request->vacinas,
+            'observacoes' => $request->observacoes,
         ]);
 
         return redirect()->route('bezerro.index', compact('user'));

@@ -3,7 +3,7 @@
         <h1>Vacas</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{route('dashboard.index')}}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Home</a></li>
                 <li class="breadcrumb-item">Listar Animais</li>
                 <li class="breadcrumb-item active">Vacas</li>
             </ol>
@@ -16,55 +16,50 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Vacas</h5>
-                        <p>Listagem das Vacas Cadastradas</p>
 
                         <!-- Table with stripped rows -->
                         <table class="table datatable">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Position</th>
-                                    <th scope="col">Age</th>
-                                    <th scope="col">Start Date</th>
+                                    <th scope="col">Brinco</th>
+                                    <th scope="col">Cor do Brinco</th>
+                                    <th scope="col">Categoria</th>
+                                    <th scope="col">Procedência</th>
+                                    <th scope="col">Fazenda</th>
+                                    <th scope="col">Observações</th>
+                                    <th scope="col">Opções</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Brandon Jacob</td>
-                                    <td>Designer</td>
-                                    <td>28</td>
-                                    <td>2016-05-25</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Bridie Kessler</td>
-                                    <td>Developer</td>
-                                    <td>35</td>
-                                    <td>2014-12-05</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Ashleigh Langosh</td>
-                                    <td>Finance</td>
-                                    <td>45</td>
-                                    <td>2011-08-12</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Angus Grady</td>
-                                    <td>HR</td>
-                                    <td>34</td>
-                                    <td>2012-06-11</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Raheem Lehner</td>
-                                    <td>Dynamic Division Officer</td>
-                                    <td>47</td>
-                                    <td>2011-04-19</td>
-                                </tr>
+                                @isset($vacas)
+                                    @foreach ($vacas as $vaca)
+                                        <tr>
+                                            <th scope="row">{{ $vaca->brinco }}</th>
+                                            <td>{{ $vaca->cor_brinco }}</td>
+                                            <td>{{ $vaca->categoria }}</td>
+                                            <td>{{ $vaca->procedencia }}</td>
+                                            <td>{{ $vaca->fazenda }}</td>
+                                            <td>{{ $vaca->observacoes }}</td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <form action="{{ route('vaca.destroy', $vaca->id) }}"
+                                                        method="post">
+                                                        {{ csrf_field() }}
+                                                        {{ method_field('DELETE') }}
+
+                                                        <a href="{{ route('vaca.edit', $vaca->id) }}"
+                                                            class="text-muted" type="button"> <i
+                                                                class="bi bi-pencil-square"> </i>
+                                                        </a>
+                                                        <button type="submit" class="btn fs-8 me-sm-4 ">
+                                                            <i class="bi bi-trash "></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endisset
                             </tbody>
                         </table>
                         <!-- End Table with stripped rows -->

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Vaca;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Models\Vaca;
 
 class VacaController extends Controller
 {
@@ -14,10 +14,10 @@ class VacaController extends Controller
      */
     public function index()
     {
-        // $vacas = Vaca::all();
-        // $user = Auth::User();
+        $vacas = Vaca::all();
+        $user = Auth::User();
 
-        return view('cms.animais.vaca.index');
+        return view('cms.animais.vaca.index', compact('vacas', 'user'));
     }
 
     /**
@@ -25,10 +25,8 @@ class VacaController extends Controller
      */
     public function create()
     {
-        // $user = Auth::User();
-        // $vaca = Vaca::all();
-        // $egua = Animal::all()->where('animal', 'egua');
-        return view('cms.animais.vaca.create');
+        $user = Auth::User();
+        return view('cms.animais.vaca.create', compact('user'));
     }
 
     /**
@@ -38,20 +36,19 @@ class VacaController extends Controller
     {
         $user = Auth::User();
         Vaca::create([
-            'identificacao' => $request->identificacao,
-            'peso' => $request->peso,
-            'animal' => $request->animal,
-            'category' => $request->category,
-            'prenha' => $request->prenha,
+            'brinco' => $request->brinco,
+            'cor_brinco' => $request->cor_brinco,
+            'categoria' => $request->categoria,
+            'procedencia' => $request->procedencia,
             'idade' => $request->idade,
             'raca' => $request->raca,
-            'procedencia' => $request->procedencia,
-            'crias' => $request->crias,
-            'precoCompra' => $request->precoCompra,
+            'preco_compra' => $request->preco_compra,
+            'paricoes' => $request->paricoes,
             'data_primeira_cria' => $request->data_primeira_cria,
             'data_ultima_cria' => $request->data_ultima_cria,
-            'data_desmame' => $request->data_desmame,
+            'fazenda' => $request->fazenda,
             'vacinas' => $request->vacinas,
+            'observacoes' => $request->observacoes,
         ]);
 
         return redirect()->route('vaca.index', compact('user'));
@@ -73,7 +70,7 @@ class VacaController extends Controller
         $user =  Auth::User();
         $vaca = Vaca::findOrFail($id);
 
-        return view('animal.vaca.edit', compact('vaca', 'user'));
+        return view('cms.animais.vaca.edit', compact('vaca', 'user'));
     }
 
     /**
@@ -85,20 +82,19 @@ class VacaController extends Controller
         $vaca = Vaca::findOrFail($id);
 
         $vaca->update([
-            'identificacao' => $request->identificacao,
-            'peso' => $request->peso,
-            'animal' => $request->animal,
-            'category' => $request->category,
-            'prenha' => $request->prenha,
+            'brinco' => $request->brinco,
+            'cor_brinco' => $request->cor_brinco,
+            'categoria' => $request->categoria,
+            'procedencia' => $request->procedencia,
             'idade' => $request->idade,
             'raca' => $request->raca,
-            'procedencia' => $request->procedencia,
-            'crias' => $request->crias,
-            'precoCompra' => $request->precoCompra,
+            'preco_compra' => $request->preco_compra,
+            'paricoes' => $request->paricoes,
             'data_primeira_cria' => $request->data_primeira_cria,
             'data_ultima_cria' => $request->data_ultima_cria,
-            'data_desmame' => $request->data_desmame,
+            'fazenda' => $request->fazenda,
             'vacinas' => $request->vacinas,
+            'observacoes' => $request->observacoes,
         ]);
 
         return redirect()->route('vaca.index', compact('user'));

@@ -10,20 +10,18 @@ class Vaca extends Model
     use HasFactory;
 
     protected $fillable = [
-        'identificacao',
-        'peso',
-        'animal',
-        'category',
-        'prenha',
+        'brinco',
+        'cor_brinco',
+        'categoria',
+        'procedencia',
         'idade',
         'raca',
-        'procedencia',
-        'prenha',
-        'crias',
-        'precoCompra',
+        'preco_compra',
+        'paricoes',
         'data_primeira_cria',
         'data_ultima_cria',
-        'data_desmame',
+        'fazenda',
         'vacinas',
+        'observacoes'
     ];
 }

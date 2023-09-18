@@ -13,16 +13,22 @@ return new class extends Migration
     {
         Schema::create('bezerros', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();            
-            $table->integer('identificacao');
-            $table->integer('peso')->nullable(); 
-            $table->string('animal')->nullable(); 
-            $table->integer('idade')->nullable(); 
-            $table->string('raca')->nullable(); 
-            $table->unsignedBigInteger('mae_id')->nullable();            
-            $table->integer('peso_nasc')->nullable();
-            $table->integer('peso_desmame')->nullable(); 
-            $table->text('vacinas')->nullable(); 
+            $table->timestamps();
+            $table->integer('brinco');
+            $table->string('cor_brinco')->nullable();
+            $table->string('sexo')->nullable();
+            $table->string('procedencia')->nullable();
+            $table->string('mae')->nullable();
+            $table->date('data_nascimento')->nullable();
+            $table->string('raca')->nullable();
+            $table->integer('peso_nascimento')->nullable();
+            $table->integer('peso_atual')->nullable();
+            $table->integer('peso_desmame')->nullable();
+            $table->string('preco_compra')->nullable();
+            $table->string('desmame')->nullable();
+            $table->string('fazenda')->nullable();
+            $table->text('vacinas')->nullable();
+            $table->text('observacoes')->nullable();
             $table->softDeletes();
         });
     }

@@ -10,13 +10,15 @@ class Touro extends Model
     use HasFactory;
 
     protected $fillable = [
-        'identificacao',
-        'peso',
-        'animal',
-        'idade',
-        'raca',
+        'brinco',
+        'cor_brinco',
+        'peso_atual',
         'procedencia',
-        'dataCompra',
+        'raca',
+        'preco_compra',
+        'mae',
+        'fazenda',
         'vacinas',
+        'observacoes'
     ];
 }

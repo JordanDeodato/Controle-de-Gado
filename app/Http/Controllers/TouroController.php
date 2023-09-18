@@ -14,8 +14,10 @@ class TouroController extends Controller
      */
     public function index()
     {
+        $user = Auth::User();
+        $touros = Touro::all();
 
-        return view('cms.animais.touro.index');
+        return view('cms.animais.touro.index', compact('touro', 'user'));
     }
 
     /**
@@ -23,8 +25,8 @@ class TouroController extends Controller
      */
     public function create()
     {
-        // $user = Auth::User();
-        return view('cms.animais.touro.create');
+        $user = Auth::User();
+        return view('cms.animais.touro.create', compact('user'));
     }
 
     /**
@@ -35,12 +37,16 @@ class TouroController extends Controller
         $user = Auth::User();
 
         Touro::create([
-            'identificacao' => $request->identificacao,
-            'peso' => $request->peso,
-            'animal' => $request->animal,
-            'idade' => $request->idade,
+            'brinco' => $request->brinco,
+            'cor_brinco' => $request->cor_brinco,
+            'peso_atual' => $request->peso_atual,
+            'procedencia' => $request->procedencia,
             'raca' => $request->raca,
+            'preco_compra' => $request->preco_compra,
+            'mae' => $request->mae,
+            'fazenda' => $request->fazenda,
             'vacinas' => $request->vacinas,
+            'observacoes' => $request->observacoes
         ]);
 
         return redirect()->route('touro.index', compact('user'));
@@ -62,7 +68,7 @@ class TouroController extends Controller
         $user =  Auth::User();
         $touro = Touro::findOrFail($id);
 
-        return view('animal.touro.edit', compact('user', 'touro'));
+        return view('cms.animais.touro.edit', compact('user', 'touro'));
     }
 
     /**
@@ -74,12 +80,16 @@ class TouroController extends Controller
         $touro = Touro::findOrFail($id);
 
         $touro->update([
-            'identificacao' => $request->identificacao,
-            'peso' => $request->peso,
-            'animal' => $request->animal,
-            'idade' => $request->idade,
+            'brinco' => $request->brinco,
+            'cor_brinco' => $request->cor_brinco,
+            'peso_atual' => $request->peso_atual,
+            'procedencia' => $request->procedencia,
             'raca' => $request->raca,
+            'preco_compra' => $request->preco_compra,
+            'mae' => $request->mae,
+            'fazenda' => $request->fazenda,
             'vacinas' => $request->vacinas,
+            'observacoes' => $request->observacoes
         ]);
 
         return redirect()->route('touro.index', compact('user'));

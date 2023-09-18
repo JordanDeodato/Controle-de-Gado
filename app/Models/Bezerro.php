@@ -10,14 +10,20 @@ class Bezerro extends Model
     use HasFactory;
 
     protected $fillable = [
-        'identificacao',
-        'peso',
-        'animal',
-        'idade',
+        'brinco',
+        'cor_brinco',
+        'sexo',
+        'procedencia',
+        'mae',
+        'data_nascimento',
         'raca',
-        'mae_id',
-        'peso_nasc',
+        'peso_nascimento',
+        'peso_atual',
         'peso_desmame',
+        'preco_compra',
+        'desmame',
+        'fazenda',
         'vacinas',
+        'observacoes'
     ];
 }

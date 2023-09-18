@@ -11,19 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vacas', function (Blueprint $table) {
+        Schema::create('touros', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->integer('brinco');
             $table->string('cor_brinco')->nullable();
-            $table->string('categoria')->nullable();
+            $table->integer('peso_atual')->nullable();
             $table->string('procedencia')->nullable();
-            $table->integer('idade')->nullable();
             $table->string('raca')->nullable();
-            $table->integer('preco_compra')->nullable();
-            $table->string('paricoes')->nullable();
-            $table->date('data_primeira_cria')->nullable();
-            $table->date('data_ultima_cria')->nullable();
+            $table->string('preco_compra')->nullable();
+            $table->string('mae')->nullable();
             $table->string('fazenda')->nullable();
             $table->text('vacinas')->nullable();
             $table->text('observacoes')->nullable();
@@ -36,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('vacas');
+        Schema::dropIfExists('touros');
     }
 };
