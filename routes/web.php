@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\BezerroController;
+use App\Http\Controllers\Cms\Dashboard;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TouroController;
+use App\Http\Controllers\VacaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,14 +22,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::resource('dashboard', Dashboard::class);
+    Route::resource('vaca', VacaController::class);
+    Route::resource('bezerro', BezerroController::class);
+    Route::resource('touro', TouroController::class);
 });
 
 require __DIR__.'/auth.php';

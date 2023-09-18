@@ -15,10 +15,9 @@ class BezerroController extends Controller
      */
     public function index()
     {
-        $bezerros = Bezerro::all();
-        $user = Auth::User();
 
-        return view('animal.bezerro.index', compact('user', 'bezerros'));
+
+        return view('cms.animais.bezerro.index');
     }
 
     /**
@@ -26,10 +25,10 @@ class BezerroController extends Controller
      */
     public function create()
     {
-        $user = Auth::User();
-        $vacas = Vaca::all();
+        // $user = Auth::User();
+        // $vacas = Vaca::all();
         // $egua = Animal::all()->where('animal', 'egua');
-        return view('animal.bezerro.create', compact('user', 'vacas'));
+        return view('cms.animais.bezerro.create');
     }
 
     /**

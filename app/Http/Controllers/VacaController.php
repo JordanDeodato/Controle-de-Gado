@@ -14,10 +14,10 @@ class VacaController extends Controller
      */
     public function index()
     {
-        $vacas = Vaca::all();
-        $user = Auth::User();
+        // $vacas = Vaca::all();
+        // $user = Auth::User();
 
-        return view('animal.vaca.index', compact('user', 'vacas'));
+        return view('cms.animais.vaca.index');
     }
 
     /**
@@ -25,10 +25,10 @@ class VacaController extends Controller
      */
     public function create()
     {
-        $user = Auth::User();
-        $vaca = Vaca::all();
+        // $user = Auth::User();
+        // $vaca = Vaca::all();
         // $egua = Animal::all()->where('animal', 'egua');
-        return view('animal.vaca.create', compact('user', 'vaca'));
+        return view('cms.animais.vaca.create');
     }
 
     /**
