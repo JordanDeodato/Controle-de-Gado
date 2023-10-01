@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\BezerroController;
 use App\Http\Controllers\Cms\Dashboard;
+use App\Http\Controllers\LotesController;
+use App\Http\Controllers\PesoBezerroController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TouroController;
 use App\Http\Controllers\VacaController;
@@ -31,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('vaca', VacaController::class);
     Route::resource('bezerro', BezerroController::class);
     Route::resource('touro', TouroController::class);
+    Route::resource('peso-bezerro', PesoBezerroController::class);
+    Route::resource('lotes', LotesController::class);
 });
 
 require __DIR__.'/auth.php';

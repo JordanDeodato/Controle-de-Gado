@@ -31,4 +31,9 @@ class Bezerro extends Model
     {
         return $this->belongsTo(Vaca::class);
     }
+
+    public function peso()
+    {
+        return $this->hasMany(PesoBezerro::class, 'bezerro_id');
+    }
 }

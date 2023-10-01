@@ -9,7 +9,7 @@
             </ol>
         </nav>
     </div><!-- End Page Title -->
-    <section class="section">
+    <section class="section" style="min-height: 500px">
         <div class="row">
             <div class="col-lg-12">
 

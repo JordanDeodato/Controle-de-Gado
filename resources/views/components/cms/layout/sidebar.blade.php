@@ -55,20 +55,20 @@
           </li>
         </ul>
       </li><!-- End Forms Nav -->
-{{--
+
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Lotes</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
+            <a href="{{ route('lotes.create') }}">
+              <i class="bi bi-circle"></i><span>Cadastrar Novo Lote</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+            <a href="{{ route('lotes.index') }}">
+              <i class="bi bi-circle"></i><span>Lotes</span>
             </a>
           </li>
         </ul>
@@ -76,12 +76,12 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-bar-chart"></i><span>Relatórios</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
+            <a href="{{ route('peso-bezerro.index') }}">
+              <i class="bi bi-circle"></i><span>Bezerros - Controle de Peso</span>
             </a>
           </li>
           <li>
@@ -96,7 +96,7 @@
           </li>
         </ul>
       </li><!-- End Charts Nav -->
-
+{{--
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
