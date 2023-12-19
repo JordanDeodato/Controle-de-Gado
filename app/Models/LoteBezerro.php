@@ -5,16 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lote extends Model
+class LoteBezerro extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        "name"
+        "lote_id",
+        "bezerro_id"
     ];
-
-    public function bezerros(){
-        return $this->belongsToMany(Bezerro::class, 'lote_bezerros', 'lote_id', 'bezerro_id');
-    }
-    
 }

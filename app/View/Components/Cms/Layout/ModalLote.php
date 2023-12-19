@@ -9,13 +9,14 @@ use Illuminate\View\Component;
 
 class ModalLote extends Component
 {
-    public $bezerros;
+    public $bezerros, $lote;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($lote)
     {
         $this->bezerros = Bezerro::all();
+        $this->lote = $lote;
     }
 
     /**

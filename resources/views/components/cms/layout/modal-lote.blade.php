@@ -24,19 +24,14 @@
                                     @foreach ($bezerros as $bezerro)
                                         <tr>
                                             <th scope="row">Nº {{ $bezerro->brinco }}</th>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <form action="{{ route('bezerro.destroy', $bezerro->id) }}"
-                                                        method="post">
-                                                        {{ csrf_field() }}
-                                                        {{ method_field('DELETE') }}
-
-                                                        <a href="{{ route('bezerro.edit', $bezerro->id) }}"
-                                                            class="text-muted" type="button"> <i
-                                                                class="bi bi-plus-square"> </i>
-                                                        </a>
-                                                    </form>
-                                                </div>
+                                            <td class="d-flex justify-content-end">
+                                                <form action="" id="lote-form-{{ $bezerro->id }}">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <input type="hidden" name="lote_id" value="{{ $lote }}">
+                                                    <input type="hidden" name="bezerro_id" value="{{ $bezerro->id }}">
+                                                    <button class="btn btn-primary" type="submit"> <i class="bi bi-plus-square"></i> </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -55,3 +50,36 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('#exampleModal form').forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('button[type="submit"] i');
+            fetch('/lote-bezerro', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (submitButton) {
+                    submitButton.classList.remove('bi-plus-square');
+                    submitButton.classList.add('bi-check');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                // Reverter para o ícone original em caso de erro
+                if (submitButton) {
+                    submitButton.classList.add('bi-plus-square');
+                    submitButton.classList.remove('bi-check');
+                }
+            });
+        });
+    });
+});
+
+</script>

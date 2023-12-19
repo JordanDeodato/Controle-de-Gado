@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BezerroController;
 use App\Http\Controllers\Cms\Dashboard;
+use App\Http\Controllers\LoteBezerrosController;
 use App\Http\Controllers\LotesController;
 use App\Http\Controllers\PesoBezerroController;
 use App\Http\Controllers\ProfileController;
@@ -35,6 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('touro', TouroController::class);
     Route::resource('peso-bezerro', PesoBezerroController::class);
     Route::resource('lotes', LotesController::class);
+    Route::resource('lote-bezerro', LoteBezerrosController::class);
+    Route::get('/atualizar-lista', [LoteBezerrosController::class, 'getBezerrosJson']);
 });
 
 require __DIR__.'/auth.php';

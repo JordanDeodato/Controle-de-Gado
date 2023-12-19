@@ -51,9 +51,10 @@ class LotesController extends Controller
     {
         $user = Auth::User();
         $lote = Lote::findOrFail($id);
-        $bezerros = Bezerro::all();
+        $bezerros = $lote->bezerros;
+        $peso_count = $bezerros->sum('peso_atual');
 
-        return view('cms.animais.lotes.show', compact('user', 'lote'));
+        return view('cms.animais.lotes.show', compact('user', 'lote', 'bezerros', 'peso_count'));
     }
 
     /**

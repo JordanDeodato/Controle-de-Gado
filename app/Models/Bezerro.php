@@ -36,4 +36,9 @@ class Bezerro extends Model
     {
         return $this->hasMany(PesoBezerro::class, 'bezerro_id');
     }
+
+    public function lote()
+    {
+        return $this->belongsTo(Lote::class);
+    }
 }

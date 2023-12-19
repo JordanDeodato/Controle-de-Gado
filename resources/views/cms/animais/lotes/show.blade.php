@@ -27,44 +27,47 @@
                         <table class="table datatable">
                             <thead>
                                 <tr>
-                                    <th scope="col">Nome</th>
+                                    <th scope="col">Brinco</th>
                                     <th scope="col">Sexo</th>
-                                    @isset($bezerros)
-                                        @foreach ($bezerros as $bezerro)
-                                        <th>{{ date('d/m/Y', strtotime($bezerro->data_nascimento)) }}</th>
-                                            @foreach ($bezerro->peso as $peso)
-                                                <th>{{ date('d/m/Y', strtotime($peso->data_pesagem)) }}</th>
-                                            @endforeach
+                                    <th scope="col">Data de Nascimento</th>
+                                    <th scope="col">Peso Nascimento</th>
+                                    <th scope="col">Peso Atual</th>
+                                    <th scope="col">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
+                                    @isset($bezerros)
+                                        @foreach($bezerros as $bezerro)
                                         <th scope="row">Nº {{ $bezerro->brinco }}</th>
                                         <td>{{ $bezerro->sexo }}</td>
+                                        <td>{{ date('d/m/Y', strtotime($bezerro->data_nascimento)) }}</td>
                                         <td>{{ $bezerro->peso_nascimento }} KG</td>
-                                        @foreach ($bezerro->peso as $peso)
-                                            <td>{{ $peso->peso }} KG</td>
-                                            {{-- <td>
-                                                        <div class="d-flex">
-                                                            <form action="{{ route('bezerro.destroy', $bezerro->id) }}"
-                                                                method="post">
-                                                                {{ csrf_field() }}
-                                                                {{ method_field('DELETE') }}
+                                        <td>{{ $bezerro->peso_atual }} KG</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <form action="{{ route('lote-bezerro.destroy', $bezerro->id) }}"
+                                                    method="post">
+                                                    {{ csrf_field() }}
+                                                    {{ method_field('DELETE') }}
 
-                                                                <a href="{{ route('bezerro.edit', $bezerro->id) }}"
-                                                                    class="text-muted" type="button"> <i
-                                                                        class="bi bi-pencil-square"> </i>
-                                                                </a>
-                                                                <button type="submit" class="btn fs-8 me-sm-4 ">
-                                                                    <i class="bi bi-trash "></i>
-                                                                </button>
-                                                            </form>
-                                                        </div>
-                                                    </td> --}}
-                                        @endforeach
+                                                    <a href="{{ route('bezerro.edit', $bezerro->id) }}"
+                                                        class="text-muted" type="button"> <i
+                                                            class="bi bi-pencil-square"> </i>
+                                                    </a>
+                                                    <button type="submit" class="btn fs-8 me-sm-4 ">
+                                                        <i class="bi bi-trash "></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 @endisset
+                                <tr>
+                                    <th scope="row"><strong>Peso Total do Lote</strong></th>
+                                    <td><strong>{{$peso_count}} KG</strong></td>
+                                </tr>
                             </tbody>
                         </table>
                         <!-- End Table with stripped rows -->
@@ -75,5 +78,5 @@
             </div>
         </div>
     </section>
-    <x-cms.layout.modal-lote />
+    <x-cms.layout.modal-lote lote="{{$lote->id}}"/>
 </x-app-layout>
